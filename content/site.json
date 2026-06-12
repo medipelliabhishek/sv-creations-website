@@ -1,0 +1,76 @@
+{
+  "siteTitle": "SV Creations | Architects, Construction & Interior Design",
+  "siteDescription": "SV Creations designs and builds homes end to end — architectural design, civil plans, house construction and complete interiors under one roof.",
+  "logo": "",
+  "businessName": "SV Creations",
+  "tagline": "Architecture · Construction · Interiors",
+  "hero": {
+    "title": "We design, plan and build your home — end to end.",
+    "subtitle": "From the first sketch and civil plan to construction and finished interiors, SV Creations takes care of everything under one roof.",
+    "image": "/gallery/project-01.jpg"
+  },
+  "homepageText": "Building a home shouldn't mean juggling an architect, a contractor and an interior designer separately. At SV Creations, one team carries your project from concept to keys — architectural drawings and civil plans, quality construction, and interiors designed to be lived in. You get a single point of contact, transparent costs and a home that matches the plan you approved.",
+  "about": {
+    "title": "About SV Creations",
+    "text": "SV Creations is an architecture, construction and interior design studio that delivers homes end to end. We prepare complete civil plans — floor plans, elevations, structural and working drawings — manage construction on site, and finish with interiors tailored to how you live.\n\nEvery project starts with listening: your plot, your budget, your family's routines. From there we design practical, light-filled homes and build them with materials and workmanship we stand behind. Whether you need just a plan and elevation for your site, or a complete turnkey home, we'd love to build it with you.",
+    "image": "/gallery/project-02.jpg"
+  },
+  "services": [
+    {
+      "title": "Architectural Design & Civil Plans",
+      "description": "Complete drawing sets for your plot — floor plans, elevations, 3D views, structural and working drawings, plus plans ready for municipal approval.",
+      "price": "Priced per sq.ft of built-up area"
+    },
+    {
+      "title": "House Construction",
+      "description": "End-to-end turnkey construction from foundation to finishing — quality materials, experienced workmanship and regular on-site supervision with clear stage-wise billing.",
+      "price": "Package rates per sq.ft"
+    },
+    {
+      "title": "Interior Design",
+      "description": "Complete home interiors — modular kitchens, wardrobes, false ceilings, TV units, lighting and furnishing — designed and executed by our own team.",
+      "price": "Custom quote per home"
+    },
+    {
+      "title": "Renovation & Elevation Makeovers",
+      "description": "Give an existing home a new face — modern elevations, layout changes, extensions and interior refurbishment, handled with minimal disruption.",
+      "price": "Custom quote per project"
+    }
+  ],
+  "process": [
+    {
+      "title": "Consultation & Site Visit",
+      "description": "We understand your requirements, visit your plot and discuss budget, timelines and approvals."
+    },
+    {
+      "title": "Design & Civil Plans",
+      "description": "Floor plans, elevations and 3D views are drafted and refined with you until every detail is approved."
+    },
+    {
+      "title": "Construction",
+      "description": "Our team builds to the approved drawings with quality materials, stage-wise updates and site supervision."
+    },
+    {
+      "title": "Interiors & Handover",
+      "description": "Kitchens, wardrobes, ceilings and finishes are completed, and your home is handed over ready to live in."
+    }
+  ],
+  "pricingText": "Every plot and every family is different, so we quote per project. Share your plot size, location and what you have in mind — we'll visit the site and give you a clear, itemised estimate with no hidden costs.",
+  "testimonials": [
+    {
+      "name": "Ramesh & Lakshmi",
+      "role": "Duplex home, turnkey",
+      "text": "From the first plan to the day we got our keys, everything was handled by one team. The house came out exactly like the 3D design they showed us."
+    },
+    {
+      "name": "Srinivas K",
+      "role": "Civil plan & elevation",
+      "text": "Very practical floor plan that used every square foot of our small plot. Approval drawings were done quickly and the elevation gets compliments from everyone."
+    },
+    {
+      "name": "Anitha Reddy",
+      "role": "Full home interiors",
+      "text": "The modular kitchen and wardrobes are beautifully finished. They suggested ideas within our budget instead of pushing expensive options."
+    }
+  ]
+}

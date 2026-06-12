@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f6f3ec;
+  --color-paper-deep: #ece7db;
+  --color-ink: #211d18;
+  --color-ink-soft: #5c554b;
+  --color-line: #d8d2c4;
+  --color-terra: #b4552d;
+  --color-terra-deep: #93431f;
+  --color-sage: #7c8363;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-terra);
+  color: var(--color-paper);
+}
+
+/* Blueprint-style grid backdrop used in the hero and footer */
+.blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgba(33, 29, 24, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(33, 29, 24, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.blueprint-grid-light {
+  background-image:
+    linear-gradient(to right, rgba(246, 243, 236, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(246, 243, 236, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Arch-top image frame — the studio's signature shape */
+.arch {
+  border-radius: 999px 999px 0 0;
+}
