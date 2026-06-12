@@ -8,10 +8,30 @@ accent, Fraunces/Manrope fonts, arch-shaped images, numbered sections).
 
 ## Live deployment
 
-- URL: https://sv-creations-website-production.up.railway.app
-  (no custom domain yet — buy one and add it in Railway when the client decides)
+- Custom domain (primary): https://www.svcreations.co.in
+- Railway URL (fallback): https://sv-creations-website-production.up.railway.app
 - GitHub: https://github.com/medipelliabhishek/sv-creations-website (branch `main`)
 - Client: non-technical architect/builder — explain things in plain terms.
+
+### Custom domain setup (done 2026-06-12)
+
+- Registered on Railway as a custom domain on service `27690d24-...`
+  (`customDomainCreate`, CNAME target `qtsruqf7.up.railway.app`).
+- GoDaddy DNS for `svcreations.co.in`:
+  - `www` CNAME -> `qtsruqf7.up.railway.app`
+  - `_railway-verify.www` TXT -> `railway-verify=...` (one-time ownership
+    verification Railway required before issuing the SSL cert)
+- `SITE_URL` env var set to `https://www.svcreations.co.in` so
+  sitemap.ts/robots.ts emit the custom domain.
+- Root domain `svcreations.co.in` (no `www`) still serves GoDaddy's
+  auto-generated "Website Builder" placeholder — needs to be removed in
+  GoDaddy's My Products, then either forwarded to `https://www.svcreations.co.in`
+  or added as a second custom domain (Hobby plan allows only 1 per service,
+  so forwarding is the practical option).
+- To inspect/debug custom domain status via API: GraphQL query
+  `domains(projectId, environmentId, serviceId) { customDomains { status { verified certificateStatus dnsRecords { ... } } } }`
+  on `backboard.railway.com/graphql/v2` (there is no `domains` field on
+  `Service` directly — it's a top-level query).
 
 ## Railway details (IMPORTANT: shares a project with the photography site)
 
