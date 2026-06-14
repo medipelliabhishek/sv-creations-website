@@ -39,14 +39,14 @@ export default function HomePage() {
           </div>
 
           {site.hero.image && (
-            <div className="arch overflow-hidden border border-line bg-paper-deep">
+            <div className="relative h-[420px] w-full overflow-hidden rounded-2xl shadow-xl shadow-ink/10 md:h-[560px]">
               <Image
                 src={site.hero.image}
                 alt={site.businessName}
-                width={900}
-                height={1200}
+                fill
                 priority
-                className="h-[420px] w-full object-cover md:h-[520px]"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
           )}

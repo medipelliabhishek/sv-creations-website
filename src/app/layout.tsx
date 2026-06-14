@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const contact = getContactContent();
 
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${spaceGrotesk.variable} ${manrope.variable}`}>
       <body className="font-sans antialiased">
         <Navbar businessName={site.businessName} logo={site.logo} />
         <main>{children}</main>
