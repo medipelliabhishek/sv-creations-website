@@ -6,7 +6,7 @@ import { Plus, Trash2, Upload } from "lucide-react";
 import type { ContactContent, GalleryImage, SiteContent } from "@/types/content";
 
 const inputClass =
-  "w-full border border-line bg-paper px-3 py-2 text-sm text-ink outline-none focus:border-terra";
+  "w-full border border-line bg-paper px-3 py-2 text-sm text-ink outline-none focus:border-accent";
 const labelClass = "mb-1 block text-xs font-semibold uppercase tracking-[0.15em] text-ink-soft";
 
 function Field({
@@ -91,9 +91,9 @@ export default function AdminForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ site, contact }),
       });
-      flash(res.ok ? "Saved! Changes are live." : "Save failed — please try again.");
+      flash(res.ok ? "Saved! Changes are live." : "Save failed, please try again.");
     } catch {
-      flash("Save failed — please try again.");
+      flash("Save failed, please try again.");
     } finally {
       setSaving(false);
     }
@@ -152,7 +152,7 @@ export default function AdminForm() {
     <label className="block">
       <span className={labelClass}>{label}</span>
       <select className={inputClass} value={value} onChange={(e) => onChange(e.target.value)}>
-        <option value="">— none —</option>
+        <option value="">(none)</option>
         {imageOptions.map((src) => (
           <option key={src} value={src}>
             {src.replace("/gallery/", "")}
@@ -175,13 +175,13 @@ export default function AdminForm() {
           type="button"
           onClick={save}
           disabled={saving}
-          className="bg-ink px-6 py-3 text-sm uppercase tracking-[0.15em] text-paper transition-colors hover:bg-terra disabled:opacity-50"
+          className="bg-ink px-6 py-3 text-sm uppercase tracking-[0.15em] text-paper transition-colors hover:bg-accent disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save changes"}
         </button>
       </div>
 
-      {status && <p className="border border-terra bg-terra/10 px-4 py-3 text-sm text-terra-deep">{status}</p>}
+      {status && <p className="border border-accent bg-accent/10 px-4 py-3 text-sm text-accent-deep">{status}</p>}
 
       <Section title="Project photos">
         <button
@@ -270,8 +270,8 @@ export default function AdminForm() {
         {site.services.map((service, i) => (
           <div key={i} className="space-y-3 border border-line p-4">
             <div className="flex items-center justify-between">
-              <span className="font-display text-sm italic text-terra">{String(i + 1).padStart(2, "0")}</span>
-              <button type="button" aria-label="Remove service" onClick={() => removeFromList("services", i)} className="text-ink-soft hover:text-terra">
+              <span className="font-display text-sm italic text-accent">{String(i + 1).padStart(2, "0")}</span>
+              <button type="button" aria-label="Remove service" onClick={() => removeFromList("services", i)} className="text-ink-soft hover:text-accent">
                 <Trash2 size={16} />
               </button>
             </div>
@@ -283,7 +283,7 @@ export default function AdminForm() {
         <button
           type="button"
           onClick={() => setSite({ ...site, services: [...site.services, { title: "", description: "", price: "" }] })}
-          className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-terra hover:text-terra-deep"
+          className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-accent hover:text-accent-deep"
         >
           <Plus size={16} /> Add service
         </button>
@@ -294,8 +294,8 @@ export default function AdminForm() {
         {site.process.map((step, i) => (
           <div key={i} className="space-y-3 border border-line p-4">
             <div className="flex items-center justify-between">
-              <span className="font-display text-sm italic text-terra">{String(i + 1).padStart(2, "0")}</span>
-              <button type="button" aria-label="Remove step" onClick={() => removeFromList("process", i)} className="text-ink-soft hover:text-terra">
+              <span className="font-display text-sm italic text-accent">{String(i + 1).padStart(2, "0")}</span>
+              <button type="button" aria-label="Remove step" onClick={() => removeFromList("process", i)} className="text-ink-soft hover:text-accent">
                 <Trash2 size={16} />
               </button>
             </div>
@@ -306,7 +306,7 @@ export default function AdminForm() {
         <button
           type="button"
           onClick={() => setSite({ ...site, process: [...site.process, { title: "", description: "" }] })}
-          className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-terra hover:text-terra-deep"
+          className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-accent hover:text-accent-deep"
         >
           <Plus size={16} /> Add step
         </button>
@@ -316,8 +316,8 @@ export default function AdminForm() {
         {site.testimonials.map((t, i) => (
           <div key={i} className="space-y-3 border border-line p-4">
             <div className="flex items-center justify-between">
-              <span className="font-display text-sm italic text-terra">{String(i + 1).padStart(2, "0")}</span>
-              <button type="button" aria-label="Remove testimonial" onClick={() => removeFromList("testimonials", i)} className="text-ink-soft hover:text-terra">
+              <span className="font-display text-sm italic text-accent">{String(i + 1).padStart(2, "0")}</span>
+              <button type="button" aria-label="Remove testimonial" onClick={() => removeFromList("testimonials", i)} className="text-ink-soft hover:text-accent">
                 <Trash2 size={16} />
               </button>
             </div>
@@ -329,7 +329,7 @@ export default function AdminForm() {
         <button
           type="button"
           onClick={() => setSite({ ...site, testimonials: [...site.testimonials, { name: "", role: "", text: "" }] })}
-          className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-terra hover:text-terra-deep"
+          className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-accent hover:text-accent-deep"
         >
           <Plus size={16} /> Add testimonial
         </button>
@@ -353,7 +353,7 @@ export default function AdminForm() {
           type="button"
           onClick={save}
           disabled={saving}
-          className="bg-ink px-8 py-3 text-sm uppercase tracking-[0.15em] text-paper shadow-lg transition-colors hover:bg-terra disabled:opacity-50"
+          className="bg-ink px-8 py-3 text-sm uppercase tracking-[0.15em] text-paper shadow-lg transition-colors hover:bg-accent disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save changes"}
         </button>

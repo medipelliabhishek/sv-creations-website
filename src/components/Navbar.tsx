@@ -43,7 +43,7 @@ export default function Navbar({ businessName, logo }: { businessName: string; l
                 key={link.href}
                 href={link.href}
                 className={`text-sm uppercase tracking-[0.15em] transition-colors ${
-                  active ? "text-terra" : "text-ink-soft hover:text-ink"
+                  active ? "text-accent" : "text-ink-soft hover:text-ink"
                 }`}
               >
                 {link.label}
@@ -76,7 +76,7 @@ export default function Navbar({ businessName, logo }: { businessName: string; l
               href={link.href}
               onClick={() => setOpen(false)}
               className={`block border-b border-line px-5 py-4 text-sm uppercase tracking-[0.15em] ${
-                pathname === link.href ? "text-terra" : "text-ink-soft"
+                pathname === link.href ? "text-accent" : "text-ink-soft"
               }`}
             >
               {link.label}

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import SectionLabel from "@/components/SectionLabel";
 import { getContactContent, getGalleryImages, getSiteContent } from "@/lib/content";
 
 // Content is editable at runtime via /admin, so render on every request.
@@ -16,44 +15,39 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="blueprint-grid border-b border-line">
-        <div className="mx-auto grid max-w-6xl items-end gap-10 px-5 pb-0 pt-16 md:grid-cols-2 md:pt-24">
-          <div className="pb-16">
-            <SectionLabel index="SV">{site.tagline}</SectionLabel>
-            <h1 className="mt-6 font-display text-4xl font-medium leading-[1.08] sm:text-5xl lg:text-6xl">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-16 md:grid-cols-2 md:pt-20">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">{site.tagline}</p>
+            <h1 className="mt-5 font-display text-4xl font-medium leading-[1.1] sm:text-5xl lg:text-6xl">
               {site.hero.title}
             </h1>
             <p className="mt-6 max-w-md text-base leading-relaxed text-ink-soft">{site.hero.subtitle}</p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="/projects"
-                className="flex items-center gap-2 bg-ink px-6 py-3 text-sm uppercase tracking-[0.15em] text-paper transition-colors hover:bg-terra"
+                href="/contact"
+                className="flex items-center gap-2 bg-ink px-6 py-3 text-sm uppercase tracking-[0.15em] text-paper transition-colors hover:bg-accent"
               >
-                View our work <ArrowRight size={16} />
+                Get a quote <ArrowRight size={16} />
               </Link>
               <Link
-                href="/contact"
+                href="/projects"
                 className="border border-ink px-6 py-3 text-sm uppercase tracking-[0.15em] transition-colors hover:bg-ink hover:text-paper"
               >
-                Get a quote
+                View our work
               </Link>
             </div>
           </div>
 
           {site.hero.image && (
-            <div className="relative mx-auto w-full max-w-md">
-              <div className="arch overflow-hidden border border-line bg-paper-deep">
-                <Image
-                  src={site.hero.image}
-                  alt={site.businessName}
-                  width={900}
-                  height={1200}
-                  priority
-                  className="h-[420px] w-full object-cover md:h-[520px]"
-                />
-              </div>
-              <p className="border-x border-t border-line bg-paper px-4 py-3 text-center text-[11px] uppercase tracking-[0.3em] text-ink-soft">
-                Plan · Build · Live
-              </p>
+            <div className="arch overflow-hidden border border-line bg-paper-deep">
+              <Image
+                src={site.hero.image}
+                alt={site.businessName}
+                width={900}
+                height={1200}
+                priority
+                className="h-[420px] w-full object-cover md:h-[520px]"
+              />
             </div>
           )}
         </div>
@@ -61,36 +55,29 @@ export default function HomePage() {
 
       {/* Intro */}
       <section className="mx-auto max-w-6xl px-5 py-20">
-        <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
-          <SectionLabel index="01">One team, end to end</SectionLabel>
-          <p className="font-display text-2xl leading-relaxed text-ink sm:text-[1.7rem]">{site.homepageText}</p>
-        </div>
+        <p className="font-display text-2xl leading-relaxed text-ink sm:max-w-3xl sm:text-[1.7rem]">{site.homepageText}</p>
       </section>
 
       {/* Services */}
       <section className="border-y border-line bg-paper-deep/60">
         <div className="mx-auto max-w-6xl px-5 py-20">
           <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <SectionLabel index="02">What we do</SectionLabel>
-              <h2 className="mt-4 font-display text-3xl font-medium sm:text-4xl">Services</h2>
-            </div>
-            <Link href="/services" className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-terra hover:text-terra-deep">
+            <h2 className="font-display text-3xl font-medium sm:text-4xl">Services</h2>
+            <Link href="/services" className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-accent hover:text-accent-deep">
               All services <ArrowRight size={16} />
             </Link>
           </div>
 
           <div>
-            {site.services.map((service, i) => (
+            {site.services.map((service) => (
               <Link
                 key={service.title}
                 href="/services"
-                className="group grid gap-2 border-t border-line py-6 transition-colors hover:bg-paper sm:grid-cols-[80px_1fr_2fr_auto] sm:items-baseline sm:gap-6 sm:px-4"
+                className="group grid gap-2 border-t border-line py-6 transition-colors hover:bg-paper sm:grid-cols-[1fr_2fr_auto] sm:items-baseline sm:gap-6 sm:px-4"
               >
-                <span className="font-display text-sm italic text-terra">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="font-display text-xl font-medium">{service.title}</h3>
                 <p className="text-sm leading-relaxed text-ink-soft">{service.description}</p>
-                <ArrowRight size={18} className="hidden text-terra opacity-0 transition-opacity group-hover:opacity-100 sm:block" />
+                <ArrowRight size={18} className="hidden text-accent opacity-0 transition-opacity group-hover:opacity-100 sm:block" />
               </Link>
             ))}
             <div className="border-t border-line" />
@@ -101,15 +88,17 @@ export default function HomePage() {
       {/* Process */}
       {site.process.length > 0 && (
         <section className="mx-auto max-w-6xl px-5 py-20">
-          <SectionLabel index="03">How it works</SectionLabel>
-          <h2 className="mt-4 font-display text-3xl font-medium sm:text-4xl">From plot to keys</h2>
+          <h2 className="font-display text-3xl font-medium sm:text-4xl">From plot to keys</h2>
 
-          <div className="mt-12 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {site.process.map((step, i) => (
-              <div key={step.title} className="bg-paper p-8">
-                <span className="font-display text-4xl font-light italic text-terra">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-5 font-display text-lg font-medium">{step.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">{step.description}</p>
+              <div key={step.title} className="reveal" style={{ animationDelay: `${i * 80}ms` }}>
+                <div className="flex items-center gap-3">
+                  <span className="h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden />
+                  {i < site.process.length - 1 && <span className="h-px flex-1 bg-line" aria-hidden />}
+                </div>
+                <h3 className="mt-4 font-display text-lg font-medium">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{step.description}</p>
               </div>
             ))}
           </div>
@@ -121,11 +110,8 @@ export default function HomePage() {
         <section className="border-y border-line bg-paper-deep/60">
           <div className="mx-auto max-w-6xl px-5 py-20">
             <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
-              <div>
-                <SectionLabel index="04">Recent work</SectionLabel>
-                <h2 className="mt-4 font-display text-3xl font-medium sm:text-4xl">Projects</h2>
-              </div>
-              <Link href="/projects" className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-terra hover:text-terra-deep">
+              <h2 className="font-display text-3xl font-medium sm:text-4xl">Projects</h2>
+              <Link href="/projects" className="flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-accent hover:text-accent-deep">
                 View all projects <ArrowRight size={16} />
               </Link>
             </div>
@@ -150,13 +136,12 @@ export default function HomePage() {
       {/* Testimonials */}
       {site.testimonials.length > 0 && (
         <section className="mx-auto max-w-6xl px-5 py-20">
-          <SectionLabel index="05">Client words</SectionLabel>
-          <h2 className="mt-4 font-display text-3xl font-medium sm:text-4xl">What homeowners say</h2>
+          <h2 className="font-display text-3xl font-medium sm:text-4xl">What homeowners say</h2>
 
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {site.testimonials.map((t) => (
-              <figure key={t.name} className="border-l-2 border-terra pl-6">
-                <blockquote className="font-display text-lg italic leading-relaxed text-ink">&ldquo;{t.text}&rdquo;</blockquote>
+              <figure key={t.name} className="border-l-2 border-accent pl-6">
+                <blockquote className="text-base leading-relaxed text-ink">&ldquo;{t.text}&rdquo;</blockquote>
                 <figcaption className="mt-5 text-sm">
                   <span className="font-semibold">{t.name}</span>
                   {t.role && <span className="block text-xs uppercase tracking-[0.15em] text-ink-soft">{t.role}</span>}
@@ -174,21 +159,18 @@ export default function HomePage() {
             Have a plot? Let&rsquo;s plan your home.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-paper/70">
-            Share your plot details and ideas — we&rsquo;ll visit your site and prepare a plan and estimate for you.
+            Share your plot details and ideas, and we&rsquo;ll visit your site and prepare a plan and estimate for you.
           </p>
-          <div className="mt-8 flex justify-center gap-4">
+          <div className="mt-8 flex flex-col items-center gap-4">
             <Link
               href="/contact"
-              className="bg-terra px-7 py-3 text-sm uppercase tracking-[0.15em] text-paper transition-colors hover:bg-terra-deep"
+              className="bg-accent px-7 py-3 text-sm uppercase tracking-[0.15em] text-paper transition-colors hover:bg-accent-deep"
             >
-              Start your project
+              Get a quote
             </Link>
             {contact.phone && (
-              <a
-                href={`tel:${contact.phone.replace(/\s/g, "")}`}
-                className="border border-paper/40 px-7 py-3 text-sm uppercase tracking-[0.15em] transition-colors hover:border-paper"
-              >
-                {contact.phone}
+              <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className="text-sm text-paper/70 hover:text-paper">
+                or call {contact.phone}
               </a>
             )}
           </div>

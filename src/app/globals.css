@@ -1,16 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f6f3ec;
-  --color-paper-deep: #ece7db;
-  --color-ink: #211d18;
-  --color-ink-soft: #5c554b;
-  --color-line: #d8d2c4;
-  --color-terra: #b4552d;
-  --color-terra-deep: #93431f;
-  --color-sage: #7c8363;
+  --color-paper: #f1f1ee;
+  --color-paper-deep: #e3e2dd;
+  --color-ink: #17181c;
+  --color-ink-soft: #5b5e66;
+  --color-line: #d2d2cd;
+  --color-accent: #2454c7;
+  --color-accent-deep: #1b3f9e;
 
-  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, sans-serif;
   --font-sans: var(--font-manrope), system-ui, sans-serif;
 }
 
@@ -25,26 +24,43 @@ body {
 }
 
 ::selection {
-  background: var(--color-terra);
+  background: var(--color-accent);
   color: var(--color-paper);
 }
 
 /* Blueprint-style grid backdrop used in the hero and footer */
 .blueprint-grid {
   background-image:
-    linear-gradient(to right, rgba(33, 29, 24, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(33, 29, 24, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(23, 24, 28, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 24, 28, 0.06) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
 .blueprint-grid-light {
   background-image:
-    linear-gradient(to right, rgba(246, 243, 236, 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(246, 243, 236, 0.07) 1px, transparent 1px);
+    linear-gradient(to right, rgba(241, 241, 238, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(241, 241, 238, 0.07) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
-/* Arch-top image frame — the studio's signature shape */
+/* Arch-top image frame, the studio's signature shape */
 .arch {
   border-radius: 999px 999px 0 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -22,7 +22,7 @@ export default function Footer({
           </div>
 
           <div className="space-y-3 text-sm text-paper/80">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-terra">Contact</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Contact</p>
             {contact.phone && (
               <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 hover:text-paper">
                 <Phone size={15} /> {contact.phone}
@@ -46,7 +46,7 @@ export default function Footer({
           </div>
 
           <div className="space-y-3 text-sm text-paper/80">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-terra">Explore</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Explore</p>
             <Link href="/projects" className="block hover:text-paper">Projects</Link>
             <Link href="/services" className="block hover:text-paper">Services</Link>
             <Link href="/about" className="block hover:text-paper">About</Link>

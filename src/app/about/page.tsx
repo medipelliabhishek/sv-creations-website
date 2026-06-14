@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import SectionLabel from "@/components/SectionLabel";
 import { getSiteContent } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -18,8 +17,7 @@ export default function AboutPage() {
     <>
       <section className="blueprint-grid border-b border-line">
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
-          <SectionLabel index="05">The studio</SectionLabel>
-          <h1 className="mt-4 font-display text-4xl font-medium sm:text-5xl">{site.about.title}</h1>
+          <h1 className="font-display text-4xl font-medium sm:text-5xl">{site.about.title}</h1>
         </div>
       </section>
 
@@ -46,7 +44,7 @@ export default function AboutPage() {
 
             <Link
               href="/contact"
-              className="mt-4 inline-flex items-center gap-2 bg-ink px-6 py-3 text-sm uppercase tracking-[0.15em] text-paper transition-colors hover:bg-terra"
+              className="mt-4 inline-flex items-center gap-2 bg-ink px-6 py-3 text-sm uppercase tracking-[0.15em] text-paper transition-colors hover:bg-accent"
             >
               Talk to us <ArrowRight size={16} />
             </Link>

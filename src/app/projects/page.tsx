@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import SectionLabel from "@/components/SectionLabel";
 import ProjectGallery from "@/components/ProjectGallery";
 import { getGalleryImages } from "@/lib/content";
 
@@ -18,10 +17,9 @@ export default function ProjectsPage() {
     <>
       <section className="blueprint-grid border-b border-line">
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
-          <SectionLabel index="04">Our work</SectionLabel>
-          <h1 className="mt-4 font-display text-4xl font-medium sm:text-5xl">Projects</h1>
+          <h1 className="font-display text-4xl font-medium sm:text-5xl">Projects</h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft">
-            Elevations, homes under construction and finished interiors — a look at what we&rsquo;ve designed and built.
+            Elevations, homes under construction and finished interiors: a look at what we&rsquo;ve designed and built.
           </p>
         </div>
       </section>

@@ -50,9 +50,6 @@ export default function ProjectGallery({ images }: { images: GalleryImage[] }) {
               height={image.height}
               className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <span className="absolute bottom-3 left-3 bg-ink/80 px-3 py-1 font-display text-xs italic text-paper opacity-0 transition-opacity group-hover:opacity-100">
-              {String(i + 1).padStart(2, "0")}
-            </span>
           </button>
         ))}
       </div>
@@ -92,9 +89,6 @@ export default function ProjectGallery({ images }: { images: GalleryImage[] }) {
           >
             <ChevronRight size={36} />
           </button>
-          <p className="absolute bottom-5 left-1/2 -translate-x-1/2 font-display text-sm italic text-paper/70">
-            {String(current + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
-          </p>
         </div>
       )}
     </>
